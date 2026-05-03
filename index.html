@@ -4,125 +4,257 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AgroLink GH — Farm to Buyer, No Middleman</title>
- <script src="https://kit.fontawesome.com/8babe7bbc7.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/8babe7bbc7.js" crossorigin="anonymous"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Instrument Serif"', 'serif'],
+            sans:  ['"DM Sans"', 'sans-serif'],
+          },
+          colors: {
+            forest: '#052e13',
+            grove:  '#0f5a2b',
+            leaf:   '#1a7d3f',
+          },
+          animation: {
+            'fade-up-1': 'fadeUp 0.65s ease 0.1s both',
+            'fade-up-2': 'fadeUp 0.65s ease 0.22s both',
+            'fade-up-3': 'fadeUp 0.65s ease 0.34s both',
+            'fade-up-4': 'fadeUp 0.65s ease 0.46s both',
+            'pulse-dot': 'pulseDot 2s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%':   { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            pulseDot: {
+              '0%, 100%': { opacity: '1',   transform: 'scale(1)' },
+              '50%':      { opacity: '0.4', transform: 'scale(0.75)' },
+            },
+          },
+          backgroundImage: {
+            'hero-photo':      "url('/evans-amoah-5JeEZIIehjE-unsplash.jpg')",
+            'features-photo':  "url('/naa-oyoo-quartey-NhXJUkf_gGU-unsplash.jpg')",
+            'logistics-photo': "url('/photo.jpg')",
+          },
+        },
+      },
+    }
+  </script>
 </head>
-<body class="bg-white text-gray-900 antialiased">
+<body class="font-sans bg-white text-forest antialiased scroll-smooth">
 
-  <!-- NAV -->
-  <div class="bg-[url(/evans-amoah-5JeEZIIehjE-unsplash.jpg)] bg-cover bg-center h-[400px]">
-    <nav class="bg-green-950 sticky top-0 z-50 border-b border-white/10">
-      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div class="text-xl font-bold text-white">
-          AgroLink <span class="text-green-400">GH</span>
-        </div>
-        <div class="hidden md:flex items-center gap-8">
-          <a href="#listings" class="text-sm text-white/60 hover:text-white transition-colors">Farmers</a>
-          <a href="#buyers" class="text-sm text-white/60 hover:text-white transition-colors">Buyers</a>
-          <a href="#logistics" class="text-sm text-white/60 hover:text-white transition-colors">Logistics</a>
-          <a href="#prices" class="text-sm text-white/60 hover:text-white transition-colors">Prices</a>
-        </div>
-        <div class="flex items-center gap-3">
-          <button class="text-sm text-white/70 hover:text-white transition-colors px-4 py-2">Sign in</button>
-          <button class="bg-green-400 text-green-950 text-sm font-medium px-4 py-2 rounded-lg hover:bg-green-300 transition-colors">
-            Join now
-          </button>
-        </div>
+  <!-- ═══════════════════════ NAV ═══════════════════════ -->
+  <nav class="bg-forest border-b border-white/10 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="font-serif text-white text-xl tracking-wide">
+        AgroLink <span class="text-green-400">GH</span>
       </div>
-    </nav>
-  </div>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#listings"  class="text-sm text-white/55 hover:text-white transition-colors">Farmers</a>
+        <a href="#buyers"    class="text-sm text-white/55 hover:text-white transition-colors">Buyers</a>
+        <a href="#logistics" class="text-sm text-white/55 hover:text-white transition-colors">Logistics</a>
+        <a href="#prices"    class="text-sm text-white/55 hover:text-white transition-colors">Prices</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button class="text-sm text-white/60 hover:text-white transition-colors px-3 py-2">Sign in</button>
+        <a href="#" class="bg-green-400 text-forest text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-green-300 transition-colors">Join now</a>
+      </div>
+    </div>
+  </nav>
 
-  <!-- HERO -->
-  <section class="bg-green-950">
-    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
-      <div class="flex flex-col md:flex-row items-start justify-between gap-12">
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="bg-hero-photo bg-cover bg-center py-24 md:py-36 px-6 relative overflow-hidden">
 
-        <!-- Left -->
-        <div class="max-w-xl">
-          <span class="inline-block bg-white/10 border border-white/20 text-green-300 text-xs tracking-widest px-4 py-1.5 rounded-full mb-6">
-            Ghana's Agricultural Marketplace
-          </span>
-          <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
-            Farm to buyer,<br />
-            <span class="text-green-400">no middleman</span>
-          </h1>
-          <p class="text-white/60 text-lg leading-relaxed mb-10">
-            AgroLink GH connects Ghanaian farmers directly with buyers, exporters, and logistics providers — so you get fair prices and faster deals.
-          </p>
-          <div class="flex flex-wrap gap-3">
-            <a href="#listings" class="bg-green-400 text-green-950 font-medium px-6 py-3 rounded-lg hover:bg-green-300 transition-colors text-sm">
-              List your produce →
-            </a>
-            <a href="#buyers" class="border border-white/30 text-white font-medium px-6 py-3 rounded-lg hover:bg-white/10 transition-colors text-sm">
-              Find suppliers
-            </a>
+    <!-- Dark overlay so text is readable -->
+    <div class="absolute inset-0 bg-forest/75"></div>
+
+    <!-- Radial glows on top of overlay -->
+    <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-green-400/[0.06] pointer-events-none"></div>
+    <div class="absolute -bottom-16 -left-20 w-[350px] h-[350px] rounded-full bg-green-400/[0.04] pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="max-w-2xl">
+
+        <!-- Badge -->
+        <div class="animate-fade-up-1 inline-flex items-center gap-2 bg-white/[0.07] border border-white/[0.14] text-green-300 text-xs font-medium tracking-widest px-4 py-1.5 rounded-full mb-7">
+          <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse-dot"></span>
+          Ghana's Agricultural Marketplace
+        </div>
+
+        <h1 class="animate-fade-up-2 font-serif text-white leading-tight mb-6 text-5xl md:text-6xl lg:text-7xl">
+          Farm to buyer,<br/>
+          <em class="text-green-400 not-italic">no middleman</em>
+        </h1>
+
+        <p class="animate-fade-up-3 text-gray-100 text-lg leading-relaxed mb-10 max-w-lg">
+          AgroLink GH connects Ghanaian farmers directly with buyers, exporters, and logistics providers — so you get fair prices and faster deals.
+        </p>
+
+        <div class="animate-fade-up-4 flex flex-wrap gap-3 mb-14">
+          <a href="#listings" class="bg-green-400 text-forest font-semibold text-sm px-6 py-3 rounded-xl hover:bg-green-300 transition-colors">List your produce →</a>
+          <a href="#buyers"   class="border border-white/25 text-white font-medium text-sm px-6 py-3 rounded-xl hover:bg-white/10 transition-colors">Find suppliers</a>
+        </div>
+
+        <!-- Stats row -->
+        <div class="flex flex-wrap items-center gap-6 pt-8 border-t border-white/10">
+          <div>
+            <p class="font-serif text-white text-3xl leading-none">1,200+</p>
+            <p class="text-gray-100 text-xs tracking-widest uppercase mt-1">Active users</p>
+          </div>
+          <div class="w-px h-8 bg-white/15"></div>
+          <div>
+            <p class="font-serif text-white text-3xl leading-none">16</p>
+            <p class="text-gray-100 text-xs tracking-widest uppercase mt-1">Regions</p>
+          </div>
+          <div class="w-px h-8 bg-white/15"></div>
+          <div>
+            <p class="font-serif text-green-400 text-3xl leading-none">Daily</p>
+            <p class="text-gray-100 text-xs tracking-widest uppercase mt-1">Price updates</p>
           </div>
         </div>
 
-        
-
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section class="py-20 px-6 bg-[url('/naa-oyoo-quartey-NhXJUkf_gGU-unsplash.jpg')] h-[850px] bg-cover bg-center">
-    <div class="max-w-6xl mx-auto">
-      <div class="mb-12 ">
-        <p class="text-xl tracking-widest text-green-700 font-medium uppercase mb-3 rounded-full flex bg-white w-25 p-4 w-25 justify-center ">What we offer</p>
-        <h2 class="text-4xl font-bold text-gray-900 mb-4">Everything you need<br />to trade directly</h2>
-        <p class="text-gray-700 text-base leading-relaxed max-w-lg">
-          Four tools built specifically for Ghana's agricultural supply chain — from listing produce to arranging transport.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+  <!-- ═══════════════════════ FEATURES ═══════════════════════ -->
+  <section class="bg-grove relative py-24 px-6 overflow-hidden">
 
-        <div class="border border-gray-100 rounded-xl p-6 bg-white transition duration-200 hover:-translate-y-1 hover:shadow-lg">
-          <div class="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center text-lg mb-5"><i class="fa-solid fa-list"></i></div>
-          <h3 class="font-medium text-gray-900 mb-2">Farmer listings</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">List your produce with quantity, location, price, and harvest date. Buyers find you directly.</p>
-        </div>
+    <!-- Decorative background geometry -->
+    <div class="absolute inset-0 bg-gradient-to-br from-forest via-grove to-leaf/80"></div>
 
-        <div class="border border-gray-100 rounded-xl p-6 bg-white transition duration-200 hover:-translate-y-1 hover:shadow-lg">
-          <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-lg mb-5"><i class="fa-solid fa-bag-shopping"></i></div>
-          <h3 class="font-medium text-gray-800 mb-2">Buyer discovery</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">Exporters and wholesalers post what they need. Farmers see real demand and respond.</p>
-        </div>
+    <!-- Large faint circle top-right -->
+    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full border border-white/[0.04] pointer-events-none"></div>
+    <div class="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full border border-white/[0.06] pointer-events-none"></div>
 
-        <div class="border border-gray-100 rounded-xl p-6 bg-white transition duration-200 hover:-translate-y-1 hover:shadow-lg">
-          <div class="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center text-lg mb-5"><i class="fa-solid fa-truck"></i></div>
-          <h3 class="font-medium text-gray-900 mb-2">Logistics board</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">Post transport jobs. Drivers respond. Produce moves faster with less wastage.</p>
-        </div>
+    <!-- Dot grid texture top-right -->
+    <div class="absolute top-0 right-0 w-72 h-72 opacity-[0.06] pointer-events-none bg-[radial-gradient(#4ade80_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
-        <div class="border border-gray-100 rounded-xl p-6 bg-white transition duration-200 hover:-translate-y-1 hover:shadow-lg">
-          <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center text-lg mb-5"><i class="fa-solid fa-money-bill"></i></div>
-          <h3 class="font-medium text-gray-900 mb-2">Price tracker</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">Real-time crop prices across Ghana's regions. Know your worth before you negotiate.</p>
-        </div>
+    <!-- Glow blobs -->
+    <div class="absolute top-10 right-10 w-80 h-80 rounded-full bg-green-400/[0.07] blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-green-300/[0.05] blur-3xl pointer-events-none"></div>
 
-      </div>
-    </div>
-  </section>
+    <!-- Horizontal rule accent -->
+    <div class="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-green-400/30 to-transparent"></div>
 
-  <!-- FARMER LISTINGS -->
-  <section id="listings" class="py-20 px-6 bg-gray-50">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex items-end justify-between mb-12">
+    <div class="max-w-6xl mx-auto relative z-10">
+
+      <!-- Header -->
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14">
         <div>
-          <p class="text-xs tracking-widest text-green-700 font-medium uppercase mb-3">Farmer listings</p>
-          <h2 class="text-4xl font-bold text-gray-900 mb-3">Fresh produce, ready now</h2>
-          <p class="text-gray-500 text-base">Browse what farmers are selling across Ghana today.</p>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-5 h-0.5 bg-green-400 rounded-full"></span>
+            <span class="text-green-400 text-xs font-semibold tracking-[0.2em] uppercase">What we offer</span>
+          </div>
+          <h2 class="font-serif text-white text-4xl md:text-5xl leading-tight">
+            Everything you need<br/>to <em class="text-green-400 not-italic">trade directly</em>
+          </h2>
         </div>
-        <button class="hidden md:block border border-gray-200 text-sm text-gray-600 px-5 py-2.5 rounded-lg hover:bg-white transition-colors">
-          View all listings →
-        </button>
+        <div class="max-w-xs">
+          <p class="text-gray-100 text-sm leading-relaxed mb-5">
+            Four tools built for Ghana's agricultural supply chain — from listing produce to arranging transport.
+          </p>
+          <!-- Mini stat pills -->
+          <div class="flex items-center gap-3 flex-wrap">
+            <div class="flex items-center gap-2 bg-white/[0.07] border border-white/10 rounded-full px-3 py-1.5">
+              <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+              <span class="text-white/55 text-xs font-medium">1,200+ users</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/[0.07] border border-white/10 rounded-full px-3 py-1.5">
+              <span class="text-white/55 text-xs font-medium">16 regions</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Search bar -->
-      <div class="flex gap-3 mb-8 flex-wrap">
-        <input type="text" placeholder="Search produce, region..." class="flex-1 min-w-[200px] border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-green-700 transition-colors" />
-        <select class="border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-600 outline-none bg-white">
+      <!-- Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <div class="bg-white/[0.07] border border-white/10 rounded-2xl p-7 relative overflow-hidden group hover:bg-white/[0.12] hover:border-green-400/30 hover:-translate-y-1.5 transition-all duration-300">
+          <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-green-400 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center bg-green-400/15 border border-green-400/20 mb-6">
+            <i class="fa-solid fa-list text-green-400"></i>
+          </div>
+          <h3 class="text-white font-semibold text-base mb-2">Farmer listings</h3>
+          <p class="text-white text-sm leading-relaxed">List your produce with quantity, location, price, and harvest date. Buyers find you directly.</p>
+          <a href="#listings" class="mt-5 pt-4 border-t border-white/10 flex items-center gap-1.5 text-white/40 hover:text-green-400 text-xs font-semibold tracking-widest uppercase transition-colors">
+            Browse <i class="fa-solid fa-arrow-right text-[9px]"></i>
+          </a>
+        </div>
+
+        <div class="bg-white/[0.07] border border-white/10 rounded-2xl p-7 relative overflow-hidden group hover:bg-white/[0.12] hover:border-blue-400/30 hover:-translate-y-1.5 transition-all duration-300">
+          <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-400 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center bg-blue-400/15 border border-blue-400/20 mb-6">
+            <i class="fa-solid fa-bag-shopping text-blue-300"></i>
+          </div>
+          <h3 class="text-white font-semibold text-base mb-2">Buyer discovery</h3>
+          <p class="text-white text-sm leading-relaxed">Exporters and wholesalers post what they need. Farmers see real demand and respond.</p>
+          <a href="#buyers" class="mt-5 pt-4 border-t border-white/10 flex items-center gap-1.5 text-white/40 hover:text-blue-300 text-xs font-semibold tracking-widest uppercase transition-colors">
+            Explore <i class="fa-solid fa-arrow-right text-[9px]"></i>
+          </a>
+        </div>
+
+        <div class="bg-white/[0.07] border border-white/10 rounded-2xl p-7 relative overflow-hidden group hover:bg-white/[0.12] hover:border-amber-400/30 hover:-translate-y-1.5 transition-all duration-300">
+          <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-400 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center bg-amber-400/15 border border-amber-400/20 mb-6">
+            <i class="fa-solid fa-truck text-amber-300"></i>
+          </div>
+          <h3 class="text-white font-semibold text-base mb-2">Logistics board</h3>
+          <p class="text-white text-sm leading-relaxed">Post transport jobs. Drivers respond. Produce moves faster with less wastage.</p>
+          <a href="#logistics" class="mt-5 pt-4 border-t border-white/10 flex items-center gap-1.5 text-white/40 hover:text-amber-300 text-xs font-semibold tracking-widest uppercase transition-colors">
+            Post job <i class="fa-solid fa-arrow-right text-[9px]"></i>
+          </a>
+        </div>
+
+        <div class="bg-white/[0.07] border border-white/10 rounded-2xl p-7 relative overflow-hidden group hover:bg-white/[0.12] hover:border-orange-400/30 hover:-translate-y-1.5 transition-all duration-300">
+          <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-400 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center bg-orange-400/15 border border-orange-400/20 mb-6">
+            <i class="fa-solid fa-money-bill text-orange-300"></i>
+          </div>
+          <h3 class="text-white font-semibold text-base mb-2">Price tracker</h3>
+          <p class="text-white text-sm leading-relaxed">Real-time crop prices across Ghana's regions. Know your worth before you negotiate.</p>
+          <a href="#prices" class="mt-5 pt-4 border-t border-white/10 flex items-center gap-1.5 text-white/40 hover:text-orange-300 text-xs font-semibold tracking-widest uppercase transition-colors">
+            Check prices <i class="fa-solid fa-arrow-right text-[9px]"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom divider accent -->
+      <div class="mt-14 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FARMER LISTINGS ═══════════════════════ -->
+  <section id="listings" class="py-20 px-6 bg-green-50/40">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-4 h-0.5 bg-green-400 rounded-full"></span>
+            <span class="text-leaf text-xs font-semibold tracking-[0.2em] uppercase">Farmer listings</span>
+          </div>
+          <h2 class="font-serif text-forest text-4xl mt-1">Fresh produce, ready now</h2>
+          <p class="text-gray-500 text-sm mt-2">Browse what farmers are selling across Ghana today.</p>
+        </div>
+        <a href="#" class="hidden md:inline-flex items-center gap-1.5 border border-gray-200 text-sm text-gray-500 px-5 py-2.5 rounded-xl hover:bg-white hover:border-gray-300 transition-colors">
+          View all <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+      <!-- Search -->
+      <div class="flex flex-wrap gap-3 mb-8">
+        <input type="text" placeholder="Search produce, region…"
+          class="flex-1 min-w-[200px] border border-gray-200 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-leaf transition-colors bg-white font-sans" />
+        <select class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-500 outline-none bg-white font-sans cursor-pointer">
           <option>All regions</option>
           <option>Greater Accra</option>
           <option>Ashanti</option>
@@ -130,50 +262,48 @@
           <option>Volta</option>
           <option>Northern</option>
         </select>
-        <button class="bg-green-950 text-white text-sm px-5 py-2.5 rounded-lg hover:bg-green-800 transition-colors">
-          Search
-        </button>
+        <button class="bg-forest text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-grove transition-colors">Search</button>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-        <div class="bg-white border border-gray-100 rounded-xl p-5 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
-          <span class="inline-block bg-green-50 text-green-700 text-xs font-medium px-3 py-1 rounded-full mb-4">Fresh harvest</span>
-          <h4 class="font-medium text-gray-900 mb-1">Pineapples — MD2</h4>
+        <div class="bg-white border border-gray-100 rounded-2xl p-5 hover:-translate-y-1 hover:shadow-lg hover:border-green-200 transition-all duration-200">
+          <span class="inline-block bg-green-50 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">Fresh harvest</span>
+          <h4 class="font-semibold text-gray-900 text-sm mb-1">Pineapples — MD2</h4>
           <p class="text-xs text-gray-400 mb-4">Richie Farms · Eastern Region</p>
-          <div class="border-t border-gray-100 pt-4 flex justify-between items-center">
-            <span class="text-green-700 font-medium text-base">GH₵ 4.50/kg</span>
-            <span class="text-xs text-gray-400">12 tonnes</span>
+          <div class="border-t border-gray-100 pt-3.5 flex justify-between items-center">
+            <span class="font-semibold text-sm text-leaf">GH₵ 4.50/kg</span>
+            <span class="text-xs text-gray-400 bg-gray-50 px-2 py-0.5 rounded-md">12 t</span>
           </div>
         </div>
 
-        <div class="bg-white border border-gray-100 rounded-xl p-5 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
-          <span class="inline-block bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full mb-4">Export ready</span>
-          <h4 class="font-medium text-gray-900 mb-1">Cocoa beans — Grade A</h4>
+        <div class="bg-white border border-gray-100 rounded-2xl p-5 hover:-translate-y-1 hover:shadow-lg hover:border-green-200 transition-all duration-200">
+          <span class="inline-block bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">Export ready</span>
+          <h4 class="font-semibold text-gray-900 text-sm mb-1">Cocoa beans — Grade A</h4>
           <p class="text-xs text-gray-400 mb-4">Asante Farms · Ashanti Region</p>
-          <div class="border-t border-gray-100 pt-4 flex justify-between items-center">
-            <span class="text-green-700 font-medium text-base">GH₵ 38.00/kg</span>
-            <span class="text-xs text-gray-400">5 tonnes</span>
+          <div class="border-t border-gray-100 pt-3.5 flex justify-between items-center">
+            <span class="font-semibold text-sm text-leaf">GH₵ 38.00/kg</span>
+            <span class="text-xs text-gray-400 bg-gray-50 px-2 py-0.5 rounded-md">5 t</span>
           </div>
         </div>
 
-        <div class="bg-white border border-gray-100 rounded-xl p-5 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
-          <span class="inline-block bg-amber-50 text-amber-700 text-xs font-medium px-3 py-1 rounded-full mb-4">Bulk order</span>
-          <h4 class="font-medium text-gray-900 mb-1">Tomatoes — Roma</h4>
+        <div class="bg-white border border-gray-100 rounded-2xl p-5 hover:-translate-y-1 hover:shadow-lg hover:border-green-200 transition-all duration-200">
+          <span class="inline-block bg-amber-50 text-amber-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">Bulk order</span>
+          <h4 class="font-semibold text-gray-900 text-sm mb-1">Tomatoes — Roma</h4>
           <p class="text-xs text-gray-400 mb-4">Volta Fresh Co. · Volta Region</p>
-          <div class="border-t border-gray-100 pt-4 flex justify-between items-center">
-            <span class="text-green-700 font-medium text-base">GH₵ 6.20/kg</span>
-            <span class="text-xs text-gray-400">8 tonnes</span>
+          <div class="border-t border-gray-100 pt-3.5 flex justify-between items-center">
+            <span class="font-semibold text-sm text-leaf">GH₵ 6.20/kg</span>
+            <span class="text-xs text-gray-400 bg-gray-50 px-2 py-0.5 rounded-md">8 t</span>
           </div>
         </div>
 
-        <div class="bg-white border border-gray-100 rounded-xl p-5 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
-          <span class="inline-block bg-green-50 text-green-700 text-xs font-medium px-3 py-1 rounded-full mb-4">Fresh harvest</span>
-          <h4 class="font-medium text-gray-900 mb-1">Cassava — Premium</h4>
+        <div class="bg-white border border-gray-100 rounded-2xl p-5 hover:-translate-y-1 hover:shadow-lg hover:border-green-200 transition-all duration-200">
+          <span class="inline-block bg-green-50 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">Fresh harvest</span>
+          <h4 class="font-semibold text-gray-900 text-sm mb-1">Cassava — Premium</h4>
           <p class="text-xs text-gray-400 mb-4">Northern Roots · Northern Region</p>
-          <div class="border-t border-gray-100 pt-4 flex justify-between items-center">
-            <span class="text-green-700 font-medium text-base">GH₵ 2.80/kg</span>
-            <span class="text-xs text-gray-400">20 tonnes</span>
+          <div class="border-t border-gray-100 pt-3.5 flex justify-between items-center">
+            <span class="font-semibold text-sm text-leaf">GH₵ 2.80/kg</span>
+            <span class="text-xs text-gray-400 bg-gray-50 px-2 py-0.5 rounded-md">20 t</span>
           </div>
         </div>
 
@@ -181,53 +311,57 @@
     </div>
   </section>
 
-  <!-- BUYER DISCOVERY -->
+  <!-- ═══════════════════════ BUYER DISCOVERY ═══════════════════════ -->
   <section id="buyers" class="py-20 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
-      <div class="mb-12">
-        <p class="text-xs tracking-widest text-green-700 font-medium uppercase mb-3">Buyer discovery</p>
-        <h2 class="text-4xl font-bold text-gray-900 mb-3">What buyers need now</h2>
-        <p class="text-gray-500 text-base">Exporters and wholesalers posting active demand — respond directly.</p>
+
+      <div class="mb-10">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-4 h-0.5 bg-green-400 rounded-full"></span>
+          <span class="text-leaf text-xs font-semibold tracking-[0.2em] uppercase">Buyer discovery</span>
+        </div>
+        <h2 class="font-serif text-forest text-4xl mt-1">What buyers need now</h2>
+        <p class="text-gray-500 text-sm mt-2">Exporters and wholesalers posting active demand — respond directly.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-        <div class="border border-gray-100 rounded-xl p-6 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+        <div class="border border-gray-100 rounded-2xl p-6 bg-white hover:-translate-y-1 hover:shadow-lg hover:border-green-200 transition-all duration-200">
           <div class="flex items-center justify-between mb-4">
-            <span class="inline-block bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full">Exporter</span>
-            <span class="text-xs text-gray-400">Posted 2h ago</span>
+            <span class="bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">Exporter</span>
+            <span class="text-xs text-gray-400">2h ago</span>
           </div>
-          <h4 class="font-medium text-gray-900 mb-1">MD2 Pineapples needed</h4>
+          <h4 class="font-semibold text-gray-900 text-sm mb-2">MD2 Pineapples needed</h4>
           <p class="text-sm text-gray-500 mb-4 leading-relaxed">Looking for 20 tonnes of export-grade MD2 pineapples for EU shipment. Must be certified.</p>
           <div class="border-t border-gray-100 pt-4 flex justify-between items-center">
-            <span class="text-green-700 font-medium text-sm">Up to GH₵ 5.00/kg</span>
-            <button class="bg-green-950 text-white text-xs px-4 py-2 rounded-lg hover:bg-green-800 transition-colors">Respond</button>
+            <span class="font-semibold text-sm text-leaf">Up to GH₵ 5.00/kg</span>
+            <button class="bg-forest text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-grove transition-colors">Respond</button>
           </div>
         </div>
 
-        <div class="border border-gray-100 rounded-xl p-6 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+        <div class="border border-gray-100 rounded-2xl p-6 bg-white hover:-translate-y-1 hover:shadow-lg hover:border-green-200 transition-all duration-200">
           <div class="flex items-center justify-between mb-4">
-            <span class="inline-block bg-amber-50 text-amber-700 text-xs font-medium px-3 py-1 rounded-full">Wholesaler</span>
-            <span class="text-xs text-gray-400">Posted 5h ago</span>
+            <span class="bg-amber-50 text-amber-700 text-xs font-semibold px-3 py-1 rounded-full">Wholesaler</span>
+            <span class="text-xs text-gray-400">5h ago</span>
           </div>
-          <h4 class="font-medium text-gray-900 mb-1">Tomatoes — large volume</h4>
+          <h4 class="font-semibold text-gray-900 text-sm mb-2">Tomatoes — large volume</h4>
           <p class="text-sm text-gray-500 mb-4 leading-relaxed">Need 15 tonnes of Roma tomatoes weekly for Accra distribution. Ongoing contract available.</p>
           <div class="border-t border-gray-100 pt-4 flex justify-between items-center">
-            <span class="text-green-700 font-medium text-sm">Up to GH₵ 6.50/kg</span>
-            <button class="bg-green-950 text-white text-xs px-4 py-2 rounded-lg hover:bg-green-800 transition-colors">Respond</button>
+            <span class="font-semibold text-sm text-leaf">Up to GH₵ 6.50/kg</span>
+            <button class="bg-forest text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-grove transition-colors">Respond</button>
           </div>
         </div>
 
-        <div class="border border-gray-100 rounded-xl p-6 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+        <div class="border border-gray-100 rounded-2xl p-6 bg-white hover:-translate-y-1 hover:shadow-lg hover:border-green-200 transition-all duration-200">
           <div class="flex items-center justify-between mb-4">
-            <span class="inline-block bg-green-50 text-green-700 text-xs font-medium px-3 py-1 rounded-full">Processor</span>
-            <span class="text-xs text-gray-400">Posted 1d ago</span>
+            <span class="bg-green-50 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">Processor</span>
+            <span class="text-xs text-gray-400">1d ago</span>
           </div>
-          <h4 class="font-medium text-gray-900 mb-1">Cassava for processing</h4>
+          <h4 class="font-semibold text-gray-900 text-sm mb-2">Cassava for processing</h4>
           <p class="text-sm text-gray-500 mb-4 leading-relaxed">Food processing company seeking 50 tonnes of fresh cassava monthly. Northern region preferred.</p>
           <div class="border-t border-gray-100 pt-4 flex justify-between items-center">
-            <span class="text-green-700 font-medium text-sm">Up to GH₵ 3.10/kg</span>
-            <button class="bg-green-950 text-white text-xs px-4 py-2 rounded-lg hover:bg-green-800 transition-colors">Respond</button>
+            <span class="font-semibold text-sm text-leaf">Up to GH₵ 3.10/kg</span>
+            <button class="bg-forest text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-grove transition-colors">Respond</button>
           </div>
         </div>
 
@@ -235,164 +369,319 @@
     </div>
   </section>
 
-  <!-- PRICE TRACKER -->
-  <section id="prices" class="py-20 px-6 bg-gray-50">
+  <!-- ═══════════════════════ PRICE TRACKER ═══════════════════════ -->
+  <section id="prices" class="py-20 px-6 bg-green-50/40">
     <div class="max-w-6xl mx-auto">
-      <div class="mb-12">
-        <p class="text-xs tracking-widest text-green-700 font-medium uppercase mb-3">Price tracker</p>
-        <h2 class="text-4xl font-bold text-gray-900 mb-3">Market prices today</h2>
-        <p class="text-gray-500 text-base max-w-lg">Live crop prices across Ghana's major markets — so you always negotiate from a position of knowledge.</p>
+
+      <div class="flex flex-wrap items-end justify-between gap-6 mb-10">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-4 h-0.5 bg-green-400 rounded-full"></span>
+            <span class="text-leaf text-xs font-semibold tracking-[0.2em] uppercase">Price tracker</span>
+          </div>
+          <h2 class="font-serif text-forest text-4xl mt-1">Market prices today</h2>
+          <p class="text-gray-500 text-sm mt-2 max-w-md">Live crop prices across Ghana's major markets — negotiate from a position of knowledge.</p>
+        </div>
+        <div class="flex items-center gap-2 bg-green-100 border border-green-200 rounded-full px-4 py-2">
+          <span class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></span>
+          <span class="text-xs font-semibold text-green-700 tracking-wide">Updated · May 3, 2026</span>
+        </div>
       </div>
 
-      <div class="bg-white border border-gray-100 rounded-xl overflow-hidden">
-        <div class="grid grid-cols-5 px-6 py-3 bg-gray-50 border-b border-gray-100 text-xs text-gray-400 font-medium uppercase tracking-wide">
-          <span class="col-span-2">Crop</span>
-          <span>Accra (GH₵/kg)</span>
-          <span>Kumasi (GH₵/kg)</span>
+      <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+
+        <!-- Table header -->
+        <div class="grid grid-cols-4 px-6 py-3 bg-gray-50 border-b border-gray-100 text-xs font-semibold uppercase tracking-widest text-gray-400">
+          <span class="col-span-1">Crop</span>
+          <span>Accra (GH₵)</span>
+          <span>Kumasi (GH₵)</span>
           <span>Change</span>
         </div>
-        <div class="grid grid-cols-5 px-6 py-4 border-b border-gray-50 text-sm items-center hover:bg-gray-50 transition-colors">
-          <div class="col-span-2 flex items-center gap-3">
-            <span class="w-2 h-2 rounded-full bg-green-400 inline-block"></span>
-            <span class="font-medium text-gray-800">Pineapple</span>
+
+        <!-- Pineapple -->
+        <div class="grid grid-cols-4 px-6 py-4 border-b border-gray-50 items-center hover:bg-gray-50 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-seedling text-green-600 text-xs"></i>
+            </div>
+            <span class="font-semibold text-gray-800 text-sm">Pineapple</span>
           </div>
-          <span class="text-gray-700">4.50</span>
-          <span class="text-gray-700">4.20</span>
-          
+          <span class="text-gray-700 text-sm font-medium">4.50</span>
+          <span class="text-gray-500 text-sm">4.20</span>
+          <span class="text-xs font-bold text-green-700 bg-green-50 border border-green-100 px-2.5 py-1 rounded-full w-fit">↑ 2.3%</span>
         </div>
-        <div class="grid grid-cols-5 px-6 py-4 border-b border-gray-50 text-sm items-center hover:bg-gray-50 transition-colors">
-          <div class="col-span-2 flex items-center gap-3">
-            <span class="w-2 h-2 rounded-full bg-red-400 inline-block"></span>
-            <span class="font-medium text-gray-800">Tomato</span>
+
+        <!-- Tomato -->
+        <div class="grid grid-cols-4 px-6 py-4 border-b border-gray-50 items-center hover:bg-gray-50 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-red-50 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-circle-dot text-red-500 text-xs"></i>
+            </div>
+            <span class="font-semibold text-gray-800 text-sm">Tomato</span>
           </div>
-          <span class="text-gray-700">6.20</span>
-          <span class="text-gray-700">5.90</span>
-          
+          <span class="text-gray-700 text-sm font-medium">6.20</span>
+          <span class="text-gray-500 text-sm">5.90</span>
+          <span class="text-xs font-bold text-red-600 bg-red-50 border border-red-100 px-2.5 py-1 rounded-full w-fit">↓ 1.1%</span>
         </div>
-        <div class="grid grid-cols-5 px-6 py-4 border-b border-gray-50 text-sm items-center hover:bg-gray-50 transition-colors">
-          <div class="col-span-2 flex items-center gap-3">
-            <span class="w-2 h-2 rounded-full bg-amber-400 inline-block"></span>
-            <span class="font-medium text-gray-800">Cocoa</span>
+
+        <!-- Cocoa -->
+        <div class="grid grid-cols-4 px-6 py-4 border-b border-gray-50 items-center hover:bg-gray-50 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-amber-50 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-mug-hot text-amber-600 text-xs"></i>
+            </div>
+            <span class="font-semibold text-gray-800 text-sm">Cocoa</span>
           </div>
-          <span class="text-gray-700">38.00</span>
-          <span class="text-gray-700">37.50</span>
-          
+          <span class="text-gray-700 text-sm font-medium">38.00</span>
+          <span class="text-gray-500 text-sm">37.50</span>
+          <span class="text-xs font-bold text-green-700 bg-green-50 border border-green-100 px-2.5 py-1 rounded-full w-fit">↑ 0.8%</span>
         </div>
-        <div class="grid grid-cols-5 px-6 py-4 border-b border-gray-50 text-sm items-center hover:bg-gray-50 transition-colors">
-          <div class="col-span-2 flex items-center gap-3">
-            <span class="w-2 h-2 rounded-full bg-gray-400 inline-block"></span>
-            <span class="font-medium text-gray-800">Cassava</span>
+
+        <!-- Cassava -->
+        <div class="grid grid-cols-4 px-6 py-4 border-b border-gray-50 items-center hover:bg-gray-50 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-leaf text-gray-400 text-xs"></i>
+            </div>
+            <span class="font-semibold text-gray-800 text-sm">Cassava</span>
           </div>
-          <span class="text-gray-700">2.80</span>
-          <span class="text-gray-700">2.60</span>
-          
+          <span class="text-gray-700 text-sm font-medium">2.80</span>
+          <span class="text-gray-500 text-sm">2.60</span>
+          <span class="text-xs font-bold text-gray-500 bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-full w-fit">→ 0.0%</span>
         </div>
-        <div class="grid grid-cols-5 px-6 py-4 text-sm items-center hover:bg-gray-50 transition-colors">
-          <div class="col-span-2 flex items-center gap-3">
-            <span class="w-2 h-2 rounded-full bg-yellow-400 inline-block"></span>
-            <span class="font-medium text-gray-800">Plantain</span>
+
+        <!-- Plantain -->
+        <div class="grid grid-cols-4 px-6 py-4 items-center hover:bg-gray-50 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-yellow-50 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-wheat-awn text-yellow-600 text-xs"></i>
+            </div>
+            <span class="font-semibold text-gray-800 text-sm">Plantain</span>
           </div>
-          <span class="text-gray-700">3.10</span>
-          <span class="text-gray-700">3.00</span>
-          
+          <span class="text-gray-700 text-sm font-medium">3.10</span>
+          <span class="text-gray-500 text-sm">3.00</span>
+          <span class="text-xs font-bold text-green-700 bg-green-50 border border-green-100 px-2.5 py-1 rounded-full w-fit">↑ 1.6%</span>
         </div>
+
       </div>
       <p class="text-xs text-gray-400 mt-3">Prices updated daily from market agents across Ghana.</p>
+
     </div>
   </section>
 
-  <!-- LOGISTICS BOARD -->
-  <section id="logistics" class="py-20 px-6 bg-[url(/photo.jpg)] bg-cover bg-center h-[600px]">
-    <div class="max-w-6xl mx-auto">
-      <div class="mb-12">
-        <p class="text-xs tracking-widest text-green-700 font-bold uppercase mb-3 ml-20">Logistics board</p>
-        <h2 class="text-4xl font-bold text-gray-900 mb-3">Transport jobs, live now</h2>
-        <p class="text-gray-800 text-base">Farmers and buyers post transport needs. Drivers respond. Produce moves.</p>
+  <!-- ═══════════════════════ LOGISTICS ═══════════════════════ -->
+  <section id="logistics" class="bg-logistics-photo bg-cover bg-center relative py-24 px-6">
+    <div class="absolute inset-0 bg-forest/75"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-4 h-0.5 bg-green-400 rounded-full"></span>
+            <span class="text-green-400 text-xs font-semibold tracking-[0.2em] uppercase">Logistics board</span>
+          </div>
+          <h2 class="font-serif text-white text-4xl md:text-5xl leading-tight">
+            Transport jobs,<br/><em class="text-green-400 not-italic">live now</em>
+          </h2>
+        </div>
+        <p class="text-white text-sm leading-relaxed max-w-xs">Farmers and buyers post transport needs. Drivers respond. Produce moves.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
 
-        <div class="border border-gray-100 rounded-xl p-6 bg-white mt-10 mr-20 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+        <div class="bg-white/[0.08] backdrop-blur border border-white/15 rounded-2xl p-6 hover:bg-white/[0.15] hover:border-green-400/30 hover:-translate-y-1 transition-all duration-250">
           <div class="flex justify-between items-start mb-4">
             <div>
-              <h4 class="font-medium text-gray-900 text-base">Ashanti → Tema Port</h4>
-              <p class="text-xs text-gray-400 mt-0.5">Posted by Richie Farms</p>
+              <h4 class="text-white font-semibold text-sm mb-0.5">Ashanti → Tema Port</h4>
+              <p class="text-white text-xs">Posted by Richie Farms</p>
             </div>
-            <span class="bg-green-50 text-green-700 text-xs font-medium px-3 py-1 rounded-full">Open</span>
+            <span class="bg-green-400/15 text-green-400 border border-green-400/25 text-xs font-semibold px-3 py-1 rounded-full">Open</span>
           </div>
-          <p class="text-sm text-gray-500 leading-relaxed mb-5">5 tonnes pineapples · Flatbed truck needed · Export consignment</p>
-          <div class="flex justify-between items-center border-t border-gray-100 pt-4">
-            <span class="text-xs text-gray-400">Needed by May 3, 2026</span>
-            <button class="bg-green-950 text-white text-xs px-4 py-2 rounded-lg hover:bg-green-800 transition-colors">Bid</button>
+          <p class="text-white/45 text-sm leading-relaxed mb-5">5 tonnes pineapples · Flatbed truck needed · Export consignment</p>
+          <div class="flex justify-between items-center border-t border-white/10 pt-4">
+            <span class="text-white text-xs">By May 3, 2026</span>
+            <button class="bg-green-400 text-forest text-xs font-bold px-4 py-2 rounded-lg hover:bg-green-300 transition-colors">Bid</button>
           </div>
         </div>
 
-        <div class="border border-gray-100 rounded-xl p-6 bg-white mt-10 mr-20 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+        <div class="bg-white/[0.08] backdrop-blur border border-white/15 rounded-2xl p-6 hover:bg-white/[0.15] hover:border-green-400/30 hover:-translate-y-1 transition-all duration-250">
           <div class="flex justify-between items-start mb-4">
             <div>
-              <h4 class="font-medium text-gray-900 text-base">Volta Region → Accra</h4>
-              <p class="text-xs text-gray-400 mt-0.5">Posted by Volta Fresh Co.</p>
+              <h4 class="text-white font-semibold text-sm mb-0.5">Volta Region → Accra</h4>
+              <p class="text-white text-xs">Posted by Volta Fresh Co.</p>
             </div>
-            <span class="bg-amber-50 text-amber-700 text-xs font-medium px-3 py-1 rounded-full">1 bid</span>
+            <span class="bg-amber-400/15 text-amber-400 border border-amber-400/25 text-xs font-semibold px-3 py-1 rounded-full">1 bid</span>
           </div>
-          <p class="text-sm text-gray-500 leading-relaxed mb-5">8 tonnes tomatoes · Refrigerated preferred · Urgent order</p>
-          <div class="flex justify-between items-center border-t border-gray-100 pt-4">
-            <span class="text-xs text-gray-400">Needed by May 1, 2026</span>
-            <button class="bg-green-950 text-white text-xs px-4 py-2 rounded-lg hover:bg-green-800 transition-colors">Bid</button>
+          <p class="text-white text-sm leading-relaxed mb-5">8 tonnes tomatoes · Refrigerated preferred · Urgent order</p>
+          <div class="flex justify-between items-center border-t border-white/10 pt-4">
+            <span class="text-white/35 text-xs">By May 1, 2026</span>
+            <button class="bg-green-400 text-forest text-xs font-bold px-4 py-2 rounded-lg hover:bg-green-300 transition-colors">Bid</button>
           </div>
         </div>
 
-        <div class="border border-gray-100 rounded-xl p-6 bg-white mt-10 mr-20 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+        <div class="bg-white/[0.08] backdrop-blur border border-white/15 rounded-2xl p-6 hover:bg-white/[0.15] hover:border-green-400/30 hover:-translate-y-1 transition-all duration-250">
           <div class="flex justify-between items-start mb-4">
             <div>
-              <h4 class="font-medium text-gray-900 text-base">Northern Region → Kumasi</h4>
-              <p class="text-xs text-gray-400 mt-0.5">Posted by Northern Roots</p>
+              <h4 class="text-white font-semibold text-sm mb-0.5">Northern Region → Kumasi</h4>
+              <p class="text-white text-xs">Posted by Northern Roots</p>
             </div>
-            <span class="bg-green-50 text-green-700 text-xs font-medium px-3 py-1 rounded-full">Open</span>
+            <span class="bg-green-400/15 text-green-400 border border-green-400/25 text-xs font-semibold px-3 py-1 rounded-full">Open</span>
           </div>
-          <p class="text-sm text-gray-500 leading-relaxed mb-5">20 tonnes cassava · Any large truck · Flexible on date</p>
-          <div class="flex justify-between items-center border-t border-gray-100 pt-4">
-            <span class="text-xs text-gray-400">Needed by May 6, 2026</span>
-            <button class="bg-green-950 text-white text-xs px-4 py-2 rounded-lg hover:bg-green-800 transition-colors">Bid</button>
+          <p class="text-white text-sm leading-relaxed mb-5">20 tonnes cassava · Any large truck · Flexible on date</p>
+          <div class="flex justify-between items-center border-t border-white/10 pt-4">
+            <span class="text-white/35 text-xs">By May 6, 2026</span>
+            <button class="bg-green-400 text-forest text-xs font-bold px-4 py-2 rounded-lg hover:bg-green-300 transition-colors">Bid</button>
           </div>
         </div>
 
       </div>
+
+      <!-- Post CTA bar -->
+      <div class="flex items-center justify-between flex-wrap gap-4 bg-white/[0.06] backdrop-blur border border-white/10 rounded-2xl px-6 py-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-green-400/15 border border-green-400/20 flex-shrink-0">
+            <i class="fa-solid fa-truck text-green-400 text-sm"></i>
+          </div>
+          <div>
+            <p class="text-white font-semibold text-sm">Need a driver?</p>
+            <p class="text-white text-xs">Post a job, get bids within hours.</p>
+          </div>
+        </div>
+        <button class="bg-green-400 text-forest text-sm font-bold px-5 py-2.5 rounded-xl hover:bg-green-300 transition-colors">Post a transport job →</button>
+      </div>
+
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-green-950 py-24 px-6 text-center">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-5xl font-bold text-white mb-5">Ready to trade directly?</h2>
-      <p class="text-white/60 text-lg mb-10 leading-relaxed">
+  <!-- ═══════════════════════ CTA ═══════════════════════ -->
+  <section class="bg-forest py-28 px-6 text-center relative overflow-hidden">
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div class="w-[700px] h-[300px] rounded-full bg-green-400/[0.06]"></div>
+    </div>
+    <div class="max-w-xl mx-auto relative z-10">
+      <h2 class="font-serif text-white text-5xl md:text-6xl leading-tight mb-5">
+        Ready to trade<br/><em class="text-green-400 not-italic">directly?</em>
+      </h2>
+      <p class="text-white/50 text-base leading-relaxed mb-10">
         Join over 1,200 farmers and buyers already on AgroLink GH — Ghana's agricultural marketplace built for fair trade.
       </p>
       <div class="flex gap-4 justify-center flex-wrap">
-        <button class="bg-green-400 text-green-950 font-medium px-8 py-4 rounded-xl hover:bg-green-300 transition-colors text-base">
-          I am a farmer →
-        </button>
-        <button class="border border-white/30 text-white font-medium px-8 py-4 rounded-xl hover:bg-white/10 transition-colors text-base">
-          I am a buyer
-        </button>
+        <a href="#listings" class="bg-green-400 text-forest font-semibold px-8 py-4 rounded-2xl hover:bg-green-300 transition-colors text-base">I am a farmer →</a>
+        <a href="#buyers"   class="border border-white/25 text-white font-medium px-8 py-4 rounded-2xl hover:bg-white/10 transition-colors text-base">I am a buyer</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-gray-100 px-6 py-10">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-      <div class="text-xl font-bold text-gray-900">
-        AgroLink <span class="text-green-700">GH</span>
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="bg-forest text-white">
+
+    <!-- Top section -->
+    <div class="max-w-6xl mx-auto px-6 pt-16 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border-b border-white/10">
+
+      <!-- Brand col -->
+      <div class="lg:col-span-1">
+        <div class="font-serif text-2xl tracking-wide mb-4">
+          AgroLink <span class="text-green-400">GH</span>
+        </div>
+        <p class="text-white text-sm leading-relaxed mb-6">
+          Ghana's agricultural marketplace — connecting farmers directly with buyers, exporters, and logistics providers across all ten regions.
+        </p>
+        <!-- Social icons -->
+        <div class="flex items-center gap-3">
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/[0.07] border border-white/10 flex items-center justify-center hover:bg-green-400/20 hover:border-green-400/30 transition-all">
+            <i class="fa-brands fa-facebook-f text-white/60 text-xs"></i>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/[0.07] border border-white/10 flex items-center justify-center hover:bg-green-400/20 hover:border-green-400/30 transition-all">
+            <i class="fa-brands fa-x-twitter text-white/60 text-xs"></i>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/[0.07] border border-white/10 flex items-center justify-center hover:bg-green-400/20 hover:border-green-400/30 transition-all">
+            <i class="fa-brands fa-instagram text-white/60 text-xs"></i>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/[0.07] border border-white/10 flex items-center justify-center hover:bg-green-400/20 hover:border-green-400/30 transition-all">
+            <i class="fa-brands fa-whatsapp text-white/60 text-xs"></i>
+          </a>
+        </div>
       </div>
-      <div class="flex gap-8 text-sm text-gray-400">
-        <a href="#" class="hover:text-gray-700 transition-colors">About</a>
-        <a href="#" class="hover:text-gray-700 transition-colors">Contact</a>
-        <a href="#" class="hover:text-gray-700 transition-colors">Privacy</a>
-        <a href="#" class="hover:text-gray-700 transition-colors">Terms</a>
+
+      <!-- Platform col -->
+      <div>
+        <h4 class="text-xs font-semibold tracking-[0.18em] uppercase text-green-400 mb-5">Platform</h4>
+        <ul class="space-y-3">
+          <li><a href="#listings"  class="text-white/50 text-sm hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-list text-[10px] text-green-400/60"></i> Farmer listings</a></li>
+          <li><a href="#buyers"    class="text-white/50 text-sm hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-bag-shopping text-[10px] text-green-400/60"></i> Buyer discovery</a></li>
+          <li><a href="#logistics" class="text-white/50 text-sm hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-truck text-[10px] text-green-400/60"></i> Logistics board</a></li>
+          <li><a href="#prices"    class="text-white/50 text-sm hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-money-bill text-[10px] text-green-400/60"></i> Price tracker</a></li>
+        </ul>
       </div>
-      <p class="text-sm text-gray-400">© 2026 AgroLink GH · Built for Ghanaian farmers</p>
+
+      <!-- Company col -->
+      <div>
+        <h4 class="text-xs font-semibold tracking-[0.18em] uppercase text-green-400 mb-5">Company</h4>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-white/50 text-sm hover:text-white transition-colors">About us</a></li>
+          <li><a href="#" class="text-white/50 text-sm hover:text-white transition-colors">How it works</a></li>
+          <li><a href="#" class="text-white/50 text-sm hover:text-white transition-colors">Privacy policy</a></li>
+          <li><a href="#" class="text-white/50 text-sm hover:text-white transition-colors">Terms of service</a></li>
+          <li><a href="#" class="text-white/50 text-sm hover:text-white transition-colors">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact col -->
+      <div>
+        <h4 class="text-xs font-semibold tracking-[0.18em] uppercase text-green-400 mb-5">Get in touch</h4>
+        <ul class="space-y-4">
+
+          <li>
+            <a href="tel:+233592873714" class="group flex items-start gap-3 hover:no-underline">
+              <div class="w-9 h-9 rounded-xl bg-green-400/10 border border-green-400/15 flex items-center justify-center flex-shrink-0 group-hover:bg-green-400/20 transition-colors">
+                <i class="fa-solid fa-phone text-green-400 text-xs"></i>
+              </div>
+              <div>
+                <p class="text-white/30 text-xs uppercase tracking-widest mb-0.5">Phone</p>
+                <p class="text-white/70 text-sm group-hover:text-white transition-colors">0592 873 714</p>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="mailto:richmondgolo0@gmail.com" class="group flex items-start gap-3 hover:no-underline">
+              <div class="w-9 h-9 rounded-xl bg-green-400/10 border border-green-400/15 flex items-center justify-center flex-shrink-0 group-hover:bg-green-400/20 transition-colors">
+                <i class="fa-solid fa-envelope text-green-400 text-xs"></i>
+              </div>
+              <div>
+                <p class="text-white/30 text-xs uppercase tracking-widest mb-0.5">Email</p>
+                <p class="text-white/70 text-sm group-hover:text-white transition-colors break-all">richmondgolo0@gmail.com</p>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-xl bg-green-400/10 border border-green-400/15 flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-location-dot text-green-400 text-xs"></i>
+              </div>
+              <div>
+                <p class="text-white/30 text-xs uppercase tracking-widest mb-0.5">Location</p>
+                <p class="text-white/70 text-sm">Accra, Ghana</p>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
     </div>
+
+    <!-- Bottom bar -->
+    <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-white/30 text-xs">© 2026 AgroLink GH · All rights reserved · Built for Ghanaian farmers</p>
+      <div class="flex items-center gap-2">
+        <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+        <span class="text-white/30 text-xs">All systems operational</span>
+      </div>
+    </div>
+
   </footer>
 
 </body>
